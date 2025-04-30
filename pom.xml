@@ -30,16 +30,26 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-				<cloudHubDeployment>
-				<username>maheshu</username>
-				<password>Mahesh-302</password>
-				<environment>Sandbox</environment>
-				<workers>1</workers>
-				<workerType>Micro</workerType>
-				<applicationName>cicd-pipeline-demo-mahesh</applicationName>
-				<muleVersion>4.9.0</muleVersion>
-				</cloudHubDeployment>
-				</configuration>
+				
+                    <cloudHubDeployment>
+                        <uri>https://anypoint.mulesoft.com</uri>
+                        <muleVersion>${app.runtime}</muleVersion>
+                        <connectedAppClientId>${connectedAppClientId}</connectedAppClientId>
+                        <connectedAppClientSecret>${connectedAppClientSecret}</connectedAppClientSecret>
+                        <connectedAppGrantType>${grant_type}</connectedAppGrantType>
+                        <applicationName>${cloudhub.name}</applicationName>
+                        <artifact>${mule.artifact}</artifact>
+                        <businessGroup>${deploy.businessGroup}</businessGroup>
+                        <environment>${deploy.environment}</environment>
+                        <workers>${ch.workers}</workers>
+                        <workerType>${ch.workerType}</workerType>
+                        <deploymentTimeout>${ch.deploymentTimeout}</deploymentTimeout>
+                        <region>${ch.region}</region>
+                        <skipDeploymentVerification>true</skipDeploymentVerification>
+                        <applyLatestRuntimePatch>true</applyLatestRuntimePatch>
+                        <objectStoreV2>true</objectStoreV2>
+                    </cloudHubDeployment>
+                </configuration>
 			</plugin>
 		</plugins>
 	</build>
